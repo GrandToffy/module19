@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        .header {
+            font-size: 2em;
+            border: 2px solid green;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .menu {
+            border: 2px solid green;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            margin-right: 10px;
+        }
+        .content {
+            border: 2px solid green;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            {% block header %}{% endblock %}
+        </div>
+        <div class="menu">
+            {% block menu %}
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'shop' %}">Магазин</a>
+            <a href="{% url 'cart' %}">Корзина</a>
+            {% endblock %}
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>
