@@ -10,11 +10,9 @@ def home(request):
 
 # Представление для списка товаров (игр)
 def shop(request):
-    # Получаем все игры из базы данных
-    games = Game.objects.all()
+    games = Game.objects.all()  # Получение всех игр из базы данных
     context = {'games': games}
     return render(request, 'first_task/shop.html', context)
-
 
 # Представление для корзины
 def cart(request):
@@ -37,7 +35,7 @@ def sign_up_by_django(request):
             # Проверяем данные
             if password != repeat_password:
                 info['error'] = 'Пароли не совпадают'
-            elif age < 18:
+            elif int(age) < 18:
                 info['error'] = 'Вы должны быть старше 18'
             elif username in users:
                 info['error'] = 'Пользователь уже существует'
@@ -50,7 +48,6 @@ def sign_up_by_django(request):
 
     info['form'] = form
     return render(request, 'first_task/registration_page.html', info)
-
 
 # Представление регистрации через обычную HTML форму
 def sign_up_by_html(request):

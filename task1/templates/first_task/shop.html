@@ -1,4 +1,21 @@
-{% for game in games %}
-    <p>{{ game.title }} | {{ game.description }}. Стоимость: {{ game.cost }}
-    <button>Купить</button></p>
-{% endfor %}
+{% extends "menu.html" %}
+
+{% block title %}Игры{% endblock %}
+
+{% block header %}
+    Игры
+{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать в магазин игр!</h1>
+    <ul>
+        {% for game in games %}
+            <li>
+                {{ game.title }} | {{ game.description }}. Стоимость: {{ game.cost }}$
+                <button type="button" onclick="alert('Функция покупки не реализована')">Купить</button>
+            </li>
+        {% empty %}
+            <li>Нет игр в наличии.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

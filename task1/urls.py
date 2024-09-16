@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import sign_up_by_django, sign_up_by_html
+from . import views
 
 urlpatterns = [
-    path('', sign_up_by_django, name='sign_up_by_django'),
-    path('django_sign_up/', sign_up_by_html, name='sign_up_by_html'),
+    path('', views.home, name='home'),
+    path('shop/', views.shop, name='shop'),
+    path('cart/', views.cart, name='cart'),
+    path('register/', views.sign_up_by_django, name='sign_up_by_django'),  # Добавленный маршрут для регистрации
 ]
